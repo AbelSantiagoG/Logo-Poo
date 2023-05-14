@@ -13,8 +13,8 @@ import java.awt.event.KeyEvent;
  */
 public class Turtle extends Sprite {
 
-    public Turtle(int x, int y, int width, int height) {
-        super(x, y, width, height);
+    public Turtle(int x, int y) {
+        super(x, y, 50, 50);
     }
 
     @Override
