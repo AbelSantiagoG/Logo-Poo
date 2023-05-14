@@ -4,6 +4,7 @@
  */
 package co.edu.autonoma.elements;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 /**
@@ -22,14 +23,22 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
 
     @Override
     public void draw(Graphics g) {
+        g.setColor(Color.white);
+        g.fillRect(x, y, width, height);
+        
+        turtle.draw(g);
     }
 
     @Override
     public void redraw() {
+        if(drawable != null)
+            drawable.redraw();
     }
 
     @Override
     public void redraw(int x, int y, int width, int height) {
+        if(drawable != null)
+            drawable.redraw(x, y, width, height);
     }
-    
+
 }
