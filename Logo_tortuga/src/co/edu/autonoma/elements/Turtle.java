@@ -4,6 +4,7 @@
  */
 package co.edu.autonoma.elements;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
@@ -13,13 +14,14 @@ import java.awt.event.KeyEvent;
  */
 public class Turtle extends Sprite {
 
-    public Turtle(int x, int y, int width, int height) {
-        super(x, y, width, height);
+    public Turtle(int x, int y) {
+        super(x, y, 50, 50);
     }
 
     @Override
     public void draw(Graphics g) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        g.setColor(Color.BLUE);
+        g.fillRect(x, y, width, height);
     }
     
     private boolean isValidPosition(int x, int y)
