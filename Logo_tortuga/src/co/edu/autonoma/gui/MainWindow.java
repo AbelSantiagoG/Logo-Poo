@@ -6,18 +6,29 @@ package co.edu.autonoma.gui;
 
 import co.edu.autonoma.elements.Canvas;
 import co.edu.autonoma.elements.Drawable;
+import java.awt.Graphics;
 
 /**
  *
  * @author HP-15EC107LA
  */
 public class MainWindow extends javax.swing.JFrame implements Drawable{
-    private Canvas canva;
+    private Canvas canvas;
     /**
      * Creates new form MainWindow
      */
     public MainWindow() {
         initComponents();
+    }
+    
+    public void setCanvas(Canvas canvas){
+        this.canvas = canvas;
+        canvas.setDrawable(this);
+    }
+    
+    @Override
+    public void paint(Graphics g){
+        canvas.draw(g);
     }
 
     /**
@@ -49,35 +60,15 @@ public class MainWindow extends javax.swing.JFrame implements Drawable{
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainWindow().setVisible(true);
-            }
-        });
+        MainWindow window = new MainWindow();
+        Canvas canvas = new Canvas(window.getWidth(), window.getHeight());
+        
+        window.setCanvas(canvas);
+//        garden.setWidth(window.getWidth());
+//        garden.setHeight(window.getHeight());
+        
+        window.setTitle("Logo UAM");
+        window.setVisible(true);
     }
 
     @Override

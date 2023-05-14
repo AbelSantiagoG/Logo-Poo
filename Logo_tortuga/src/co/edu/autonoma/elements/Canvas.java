@@ -14,8 +14,8 @@ import java.awt.Graphics;
 public class Canvas extends Sprite implements Dimensionable, Drawable {
     private Turtle turtle;
 
-    public Canvas(int x, int y, int width, int height) {
-        super(x, y, width, height);
+    public Canvas(int width, int height) {
+        super(0, 0, width, height);
         turtle = new Turtle(width/2, height/2);
         turtle.setArea(this);
         turtle.setDrawable(this);
