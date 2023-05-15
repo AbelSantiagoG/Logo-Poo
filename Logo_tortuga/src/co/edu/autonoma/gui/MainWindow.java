@@ -102,15 +102,15 @@ public class MainWindow extends javax.swing.JFrame implements Drawable{
         String data = this.txtCommandText.getText().toLowerCase();
         String[] array= data.split(" ");
         JOptionPane.showConfirmDialog(null, array[1]+"");
-//        try{
-//            String comand = data.split(" ")[0];
-//            String value = data.split(" ")[1];
-//            canvas.handleComands(comand, value);
-//        }catch(ArrayIndexOutOfBoundsException a){
-//            String comand = data.split(" ")[0];
-//            canvas.handleComands(comand, null);
-//        }
-//        JOptionPane.showMessageDialog(null, value);
+        try{
+            String comand = data.split(" ")[0];
+            String value = data.split(" ")[1];
+ //           canvas.handleComands(comand, value);
+        }catch(ArrayIndexOutOfBoundsException a){
+            String comand = data.split(" ")[0];
+ //           canvas.handleComands(comand, null);
+        }
+ //       JOptionPane.showMessageDialog(null, value);
     }//GEN-LAST:event_btnAcceptActionPerformed
 
     /**

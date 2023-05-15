@@ -7,6 +7,8 @@ package co.edu.autonoma.elements;
 import co.edu.autonoma.elements.Exceptions.NegativeValueException;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.List;
+import java.util.ArrayList;
 
 /**
  *
@@ -22,23 +24,25 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
         turtle.setDrawable(this);
     }
     
-    public void handleComands(String comand, String value){
-        
-        if(comand.equals("fd") || comand.equals("forward") ||
-           comand.equals("bd") || comand.equals("backward")||
-           comand.equals("rt") || comand.equals("rightturn")||
-           comand.equals("lt") || comand.equals("leftturn")){
-           int amount = Integer.parseInt(value);
-            if(amount < 0){
-                throw new NegativeValueException();                     
-            }else{
-                //turtle.move(comand, amount);
+    public void handleComands( ArrayList<String> data){
+        ArrayList<String> array = new ArrayList<String>(data);
+        array.addAll(data);
+        if(array.size() == 2){
+            String comand = array.get(0);
+            String value = array.get(1);
+            if(comand.equals("fd") || comand.equals("forward") ||
+               comand.equals("bd") || comand.equals("backward")||
+               comand.equals("rt") || comand.equals("rightturn")||
+               comand.equals("lt") || comand.equals("leftturn")){
+               int amount = Integer.parseInt(value);
+                if(amount < 0){
+                    throw new NegativeValueException();                     
+                }else{
+                    //turtle.move(comand, amount);
+                }
             }
         }
-        //if()
-        
-        
-            
+        //if()          
     }
     
 
