@@ -24,12 +24,13 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
         turtle.setDrawable(this);
     }
     
-    public void handleComands( ArrayList<String> data){
-        ArrayList<String> array = new ArrayList<String>(data);
-        array.addAll(data);
-        if(array.size() == 2){
-            String comand = array.get(0);
-            String value = array.get(1);
+    public void handleComands( String [] array){   
+        if(array.length == 1){
+            
+        }
+        if(array.length == 2){
+            String comand = array[0];
+            String value = array[1];
             if(comand.equals("fd") || comand.equals("forward") ||
                comand.equals("bd") || comand.equals("backward")||
                comand.equals("rt") || comand.equals("rightturn")||
@@ -41,8 +42,8 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
                     //turtle.move(comand, amount);
                 }
             }
-        }
-        //if()          
+        } 
+        
     }
     
 

@@ -8,6 +8,7 @@ import co.edu.autonoma.elements.Canvas;
 import co.edu.autonoma.elements.Drawable;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -102,15 +103,7 @@ public class MainWindow extends javax.swing.JFrame implements Drawable{
         String data = this.txtCommandText.getText().toLowerCase();
         String[] array= data.split(" ");
         JOptionPane.showConfirmDialog(null, array[1]+"");
-        try{
-            String comand = data.split(" ")[0];
-            String value = data.split(" ")[1];
- //           canvas.handleComands(comand, value);
-        }catch(ArrayIndexOutOfBoundsException a){
-            String comand = data.split(" ")[0];
- //           canvas.handleComands(comand, null);
-        }
- //       JOptionPane.showMessageDialog(null, value);
+        canvas.handleComands(array);
     }//GEN-LAST:event_btnAcceptActionPerformed
 
     /**
