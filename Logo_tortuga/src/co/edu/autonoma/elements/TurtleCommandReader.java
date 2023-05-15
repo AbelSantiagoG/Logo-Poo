@@ -9,5 +9,9 @@ package co.edu.autonoma.elements;
  * @author HP-15EC107LA
  */
 public class TurtleCommandReader {
+
+    public TurtleCommandReader() {
+    }
+    
     
 }
