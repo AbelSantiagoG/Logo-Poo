@@ -102,7 +102,11 @@ public class MainWindow extends javax.swing.JFrame implements Drawable{
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
         String data = this.txtCommandText.getText().toLowerCase();
         String[] array= data.split(" ");
+        JOptionPane.showConfirmDialog(null, array[0]+"");
         JOptionPane.showConfirmDialog(null, array[1]+"");
+//        JOptionPane.showConfirmDialog(null, array[2]+"");
+//        JOptionPane.showConfirmDialog(null, array[3]+"");
+//        JOptionPane.showConfirmDialog(null, array[4]+"");
         canvas.handleComands(array);
     }//GEN-LAST:event_btnAcceptActionPerformed
 
