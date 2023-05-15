@@ -13,9 +13,11 @@ import java.awt.event.KeyEvent;
  * @author HP-15EC107LA
  */
 public class Turtle extends Sprite {
-
+    private int angle;
+    
     public Turtle(int x, int y) {
         super(x, y, 50, 50);
+        angle= 90;
     }
 
     @Override
@@ -35,23 +37,38 @@ public class Turtle extends Sprite {
         return false;
     }
     
-    public boolean move(int direction)
-    {
+    public void moveFd(int value){
+        x+= value;
+    }
+    
+    public void moveBk(int value){
+        x-= value;
+    }
+    
+    public void rightTurn(int value){
+        x-= value;
+    }
+    
+    public void leftTurn(int value){
+        x+= value;
+    }
+    
+    public boolean move(String command, int value){
+        if(command.equals("fd") | command.equals("forward")){
+            moveFd(value);
+        }
+        if(command.equals("bk") | command.equals("backward")){
+            moveBk(value);
+        }
+        if(command.equals("rt") | command.equals("rightturn")){
+            rightTurn(value);
+        }
+        if(command.equals("lt") | command.equals("leftturn")){
+            leftTurn(value);
+        }
+        
         int ox = x;
         int oy = y;
-        
-//        if(direction == KeyEvent.VK_LEFT)
-//            x -= step;
-//            
-//        if(direction == KeyEvent.VK_RIGHT)
-//            x += step;
-//            
-//        if(direction == KeyEvent.VK_UP)
-//            y -= step;
-//            
-//        if(direction == KeyEvent.VK_DOWN)
-//            y += step;
-
 
         if(x < this.area.getX())
             x = this.area.getX();
@@ -70,5 +87,7 @@ public class Turtle extends Sprite {
         
         return true;
     }
+    
+    
     
 }
