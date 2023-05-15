@@ -4,33 +4,27 @@
  */
 package co.edu.autonoma.instructions;
 
+
 /**
  *
  * @author migue
  */
-public class Instruction {
-    private String command;
-    private int amount;
+public abstract class Instruction {
+    private String type;
 
-    public Instruction(String command, int amount) {
-        this.command = command;
-        this.amount = amount;
+    /**
+     * @return the type
+     */
+    public String getType() {
+        return type;
     }
 
-    public String getCommand() {
-        return command;
+    /**
+     * @param type the type to set
+     */
+    public void setType(String type) {
+        this.type = type;
     }
     
-    public void setCommand(String command) {
-        this.command = command;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-      
+    
 }

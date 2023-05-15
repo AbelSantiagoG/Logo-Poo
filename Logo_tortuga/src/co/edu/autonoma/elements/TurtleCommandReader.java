@@ -4,15 +4,71 @@
  */
 package co.edu.autonoma.elements;
 
+import co.edu.autonoma.instructions.BackwardInstruction;
+import co.edu.autonoma.instructions.ForwardInstruction;
+import co.edu.autonoma.instructions.HomeInstruction;
+import co.edu.autonoma.instructions.LeftTurnInstruction;
+import co.edu.autonoma.instructions.RepeatInstruction;
+import co.edu.autonoma.instructions.ResetInstruction;
+import co.edu.autonoma.instructions.RightTurnInstruction;
+import java.util.ArrayList;
+
 /**
  *
  * @author HP-15EC107LA
  */
 public class TurtleCommandReader {
-
-    public TurtleCommandReader(){
-        
+    private Canvas canvas;
+    
+    public TurtleCommandReader(Canvas canva){
+        this.canvas= canva;
     }
     
+    public void read(String [] array){  
+        String comand = array[0];
+        if(comand.equals("r")|| comand.equals("reset")){
+            ResetInstruction r= new ResetInstruction();
+            r.setType("r");
+            canvas.setInstruction(r);
+        }
+        if(comand.equals("h")|| comand.equals("home")){
+            HomeInstruction h = new HomeInstruction();
+            h.setType("h");
+            canvas.setInstruction(h);
+        }
+        if(comand.equals("fd") || comand.equals("forward")){
+            ForwardInstruction fd= new ForwardInstruction();
+            fd.setType("fd");
+            fd.setValue(Integer.parseInt(array[1]));
+            canvas.setInstruction(fd);
+        }
+        if(comand.equals("bd") || comand.equals("backward")){
+            BackwardInstruction bd= new BackwardInstruction();
+            bd.setType("bd");
+            bd.setValue(Integer.parseInt(array[1]));
+            canvas.setInstruction(bd);
+        }
+        if(comand.equals("rt") || comand.equals("rightturn")){
+            RightTurnInstruction rt= new RightTurnInstruction();
+            rt.setType("rt");
+            rt.setValue(Integer.parseInt(array[1]));
+            canvas.setInstruction(rt);
+        }
+        if(comand.equals("lt") || comand.equals("leftturn")){
+            LeftTurnInstruction lt= new LeftTurnInstruction();
+            lt.setType("lt");
+            lt.setValue(Integer.parseInt(array[1]));
+            canvas.setInstruction(lt);
+        }
+        if(comand.equals("repeat")){
+            RepeatInstruction rp= new RepeatInstruction();
+            rp.setType("repeat");
+            rp.setValue(Integer.parseInt(array[1]));
+            ArrayList<String> arraylist= new ArrayList<>();
+            arraylist.add(array[2]);
+            arraylist.add(array[3]);
+            canvas.setInstruction(rp);
+        }
+    }
     
 }

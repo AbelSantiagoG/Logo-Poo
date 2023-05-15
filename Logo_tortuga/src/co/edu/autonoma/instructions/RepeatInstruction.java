@@ -11,12 +11,34 @@ import java.util.ArrayList;
  * @author HP-15EC107LA
  */
 public class RepeatInstruction extends Instruction {
-    private ArrayList<String> instructions= new ArrayList<>();
-    public RepeatInstruction(String command, int amount) {
-        super(command, amount);
+    private int value;
+    private ArrayList<String> array;
+            
+    /**
+     * @return the value
+     */
+    public int getValue() {
+        return value;
     }
 
-    public void setInstructions(ArrayList<String> instructions) {
-        this.instructions = instructions;
+    /**
+     * @param value the value to set
+     */
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    /**
+     * @return the array
+     */
+    public ArrayList<String> getArray() {
+        return array;
+    }
+
+    /**
+     * @param array the array to set
+     */
+    public void setArray(ArrayList<String> array) {
+        this.array = array;
     }
 }

@@ -15,10 +15,12 @@ import javax.swing.ImageIcon;
  */
 public class Turtle extends Sprite {
     private int angle;
+    private int x2;
+    private int y2;
     
     public Turtle(int x, int y) {
         super(x, y, 70, 70);
-        angle= 90;
+        angle= 270;
     }
 
     @Override
@@ -40,11 +42,12 @@ public class Turtle extends Sprite {
     }
     
     public void moveFd(int value){
+        //x2= x+
         x+= value;
     }
     
     public void moveBk(int value){
-        x-= value;
+        
     }
     
     public void rightTurn(int value){
