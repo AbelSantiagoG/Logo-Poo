@@ -4,8 +4,9 @@
  */
 package co.edu.autonoma.elements;
 
-import co.edu.autonoma.elements.Exceptions.ComandoInvalidoException;
-import co.edu.autonoma.elements.Exceptions.NegativeValueException;
+import co.edu.autonoma.Exceptions.ComandoInvalidoException;
+import co.edu.autonoma.Exceptions.NegativeValueException;
+import co.edu.autonoma.instructions.ForwardInstruction;
 import co.edu.autonoma.instructions.Instruction;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -34,6 +35,7 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
             if(comand.equals("r")|| comand.equals("reset")||
                comand.equals("h")|| comand.equals("home")){
                 instruction.setCommand(comand);
+                
             }else{
                 throw new ComandoInvalidoException();
             }
@@ -60,20 +62,45 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
             String command = array[0];
             String value= array[1];
             int amount = Integer.parseInt(value);
-            ArrayList<String> instructions = new ArrayList<>();
-            instructions.add(array[2]);
-            instructions.add(array[4]);
             if(amount < 0){
                     throw new NegativeValueException();                     
                 }else{
                     instruction.setAmount(amount);
                     instruction.setCommand(command);
+                    ArrayList<String> instructions = new ArrayList<>();
+                    instructions.add(array[2]);
+                    instructions.add(array[4]);
                 }
         }
     }
     
-    public void handleComandss(){
+    public void callInstructions(String comand){
+        if(comand.equals("r")|| comand.equals("reset")){
+            
+        }
         
+        if(comand.equals("h")|| comand.equals("home")){
+            
+        }
+        if(comand.equals("fd") || comand.equals("forward")){
+            ForwardInstruction instruction= new ForwardInstruction();
+            turtle.moveFd(instruction.getAmount());
+        }
+//        if(){
+//            
+//        }
+//        if(){
+//            
+//        }
+//        if(){
+//            
+//        }
+//        if(){
+//            
+//        }
+//        if(){
+//            
+//        }
     }
     
     public void resetAll(String comand){

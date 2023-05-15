@@ -7,6 +7,7 @@ package co.edu.autonoma.elements;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,14 +17,15 @@ public class Turtle extends Sprite {
     private int angle;
     
     public Turtle(int x, int y) {
-        super(x, y, 50, 50);
+        super(x, y, 70, 70);
         angle= 90;
     }
 
     @Override
     public void draw(Graphics g) {
-        g.setColor(Color.BLUE);
-        g.fillRect(x, y, width, height);
+        ImageIcon imagen=new ImageIcon(getClass().getResource("tortuga-removebg-preview.png"));         
+        g.setColor(new Color(128,64,0));         
+        g.drawImage(imagen.getImage(),x, y, width, height,null);
     }
     
     private boolean isValidPosition(int x, int y)
@@ -87,7 +89,6 @@ public class Turtle extends Sprite {
         
         return true;
     }
-    
     
     
 }

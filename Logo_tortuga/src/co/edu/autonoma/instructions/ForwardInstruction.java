@@ -10,8 +10,8 @@ package co.edu.autonoma.instructions;
  */
 public class ForwardInstruction extends Instruction {
     
-    public ForwardInstruction(String command) {
-        super(command, 0);
+    public ForwardInstruction() {
+        super("", 0);
     }
     
 }
