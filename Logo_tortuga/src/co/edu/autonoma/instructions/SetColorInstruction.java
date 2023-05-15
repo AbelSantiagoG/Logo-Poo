@@ -9,9 +9,5 @@ package co.edu.autonoma.instructions;
  * @author HP-15EC107LA
  */
 public class SetColorInstruction extends Instruction {
-    
-    public SetColorInstruction(String command) {
-        super(command, 0);
-    }
-    
+ 
 }

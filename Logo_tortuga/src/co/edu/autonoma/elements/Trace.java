@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package co.edu.autonoma.instructions;
+package co.edu.autonoma.elements;
 
 /**
  *
- * @author HP-15EC107LA
+ * @author migue
  */
-public class SaveInstruction extends Instruction {
-
+public class Trace {
+    
 }

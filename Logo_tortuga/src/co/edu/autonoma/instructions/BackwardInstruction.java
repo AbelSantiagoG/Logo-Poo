@@ -8,10 +8,21 @@ package co.edu.autonoma.instructions;
  *
  * @author HP-15EC107LA
  */
-public class BackwardInstruction extends Instruction {
-    
-    public BackwardInstruction(String command) {
-        super(command, 0);
+public class BackwardInstruction extends Instruction { 
+    private int value;
+            
+    /**
+     * @return the value
+     */
+    public int getValue() {
+        return value;
+    }
+
+    /**
+     * @param value the value to set
+     */
+    public void setValue(int value) {
+        this.value = value;
     }
     
     

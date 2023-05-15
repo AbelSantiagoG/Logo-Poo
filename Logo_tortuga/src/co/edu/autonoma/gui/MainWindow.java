@@ -6,9 +6,11 @@ package co.edu.autonoma.gui;
 
 import co.edu.autonoma.elements.Canvas;
 import co.edu.autonoma.elements.Drawable;
+import co.edu.autonoma.elements.TurtleCommandReader;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
+import javax.crypto.AEADBadTagException;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,11 +19,14 @@ import javax.swing.JOptionPane;
  */
 public class MainWindow extends javax.swing.JFrame implements Drawable{
     private Canvas canvas;
+    private TurtleCommandReader reader;
     /**
      * Creates new form MainWindow
      */
     public MainWindow() {
         setResizable(false);
+        canvas= new Canvas(WIDTH, HEIGHT);
+        reader= new TurtleCommandReader(canvas);
         initComponents();
     }
     
@@ -102,12 +107,7 @@ public class MainWindow extends javax.swing.JFrame implements Drawable{
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
         String data = this.txtCommandText.getText().toLowerCase();
         String[] array= data.split(" ");
-        JOptionPane.showConfirmDialog(null, array[0]+"");
-        JOptionPane.showConfirmDialog(null, array[1]+"");
-//        JOptionPane.showConfirmDialog(null, array[2]+"");
-//        JOptionPane.showConfirmDialog(null, array[3]+"");
-//        JOptionPane.showConfirmDialog(null, array[4]+"");
-        canvas.handleComands(array);
+        reader.read(array);
     }//GEN-LAST:event_btnAcceptActionPerformed
 
     /**
