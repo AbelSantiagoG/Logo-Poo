@@ -26,8 +26,13 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
     
     public void handleComands( String [] array){   
         if(array.length == 1){
-            
+            String comand = array[0];
+            if(comand.equals("r")|| comand.equals("reset")||
+               comand.equals("h")|| comand.equals("home")){
+                
+            }
         }
+        
         if(array.length == 2){
             String comand = array[0];
             String value = array[1];
@@ -44,8 +49,20 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
             }
         } 
         
+        if
     }
     
+    public void handleComandss(){
+        
+    }
+    
+    public void resetAll(String comand){
+        
+    }
+    
+    public void resetPosition(String comand){
+        
+    }
 
     @Override
     public void draw(Graphics g) {
