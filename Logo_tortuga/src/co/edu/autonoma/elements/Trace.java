@@ -9,5 +9,11 @@ package co.edu.autonoma.elements;
  * @author migue
  */
 public class Trace {
+    private String Color = "";
+
+    public Trace(String color) {
+        this.Color = color;
+    }
+    
     
 }
