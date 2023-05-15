@@ -8,6 +8,7 @@ import co.edu.autonoma.elements.Canvas;
 import co.edu.autonoma.elements.Drawable;
 import java.awt.Color;
 import java.awt.Graphics;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -52,6 +53,11 @@ public class MainWindow extends javax.swing.JFrame implements Drawable{
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnAccept.setText("Accept");
+        btnAccept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcceptActionPerformed(evt);
+            }
+        });
 
         txtCommandText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +97,21 @@ public class MainWindow extends javax.swing.JFrame implements Drawable{
     private void txtCommandTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCommandTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCommandTextActionPerformed
+
+    private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
+        String data = this.txtCommandText.getText().toLowerCase();
+        String[] array= data.split(" ");
+        JOptionPane.showConfirmDialog(null, array[1]+"");
+        try{
+            String comand = data.split(" ")[0];
+            String value = data.split(" ")[1];
+ //           canvas.handleComands(comand, value);
+        }catch(ArrayIndexOutOfBoundsException a){
+            String comand = data.split(" ")[0];
+ //           canvas.handleComands(comand, null);
+        }
+ //       JOptionPane.showMessageDialog(null, value);
+    }//GEN-LAST:event_btnAcceptActionPerformed
 
     /**
      * @param args the command line arguments
