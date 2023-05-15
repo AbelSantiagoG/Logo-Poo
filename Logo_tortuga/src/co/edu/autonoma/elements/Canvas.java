@@ -4,6 +4,7 @@
  */
 package co.edu.autonoma.elements;
 
+import co.edu.autonoma.instructions.BackwardInstruction;
 import co.edu.autonoma.instructions.Instruction;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -24,25 +25,26 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
     }
     
     public void handleInstruction(){
-        if(instruction.getType().equals("r")){
+        if(instruction instanceof BackwardInstruction){
+            int value= ((BackwardInstruction)instruction).getValue();
+            turtle.moveFd(value);
+        }
+        if(instruction instanceof BackwardInstruction){
             
         }
-        if(instruction.getType().equals("h")){
+        if(instruction instanceof BackwardInstruction) ){
             
         }
-        if(instruction.getType().equals("fd")){
+        if(instruction instanceof BackwardInstruction){
             
         }
-        if(instruction.getType().equals("bd")){
+        if(instruction instanceof BackwardInstruction){
             
         }
-        if(instruction.getType().equals("rt")){
+        if(instruction instanceof BackwardInstruction){
             
         }
-        if(instruction.getType().equals("lt")){
-            
-        }
-        if(instruction.getType().equals("repeat")){
+        if(instruction instanceof BackwardInstruction){
             
         }
     }
