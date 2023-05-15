@@ -6,7 +6,6 @@ package co.edu.autonoma.elements;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
 /**
@@ -42,20 +41,21 @@ public class Turtle extends Sprite {
     }
     
     public void moveFd(int value){
-        //x2= x+
-        x+= value;
+        x+= Math.sin(angle)*value;
+        y-= Math.cos(angle)*value;
     }
     
     public void moveBk(int value){
-        
+        x-= Math.sin(angle)*value;
+        y+= Math.cos(angle)*value;
     }
     
     public void rightTurn(int value){
-        x-= value;
+        angle+= value;
     }
     
     public void leftTurn(int value){
-        x+= value;
+        angle-= value;
     }
     
     public boolean move(String command, int value){
