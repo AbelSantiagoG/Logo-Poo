@@ -8,9 +8,14 @@ import co.edu.autonoma.instructions.BackwardInstruction;
 import co.edu.autonoma.instructions.ForwardInstruction;
 import co.edu.autonoma.instructions.HomeInstruction;
 import co.edu.autonoma.instructions.LeftTurnInstruction;
+import co.edu.autonoma.instructions.LoadInstruction;
 import co.edu.autonoma.instructions.RepeatInstruction;
 import co.edu.autonoma.instructions.ResetInstruction;
 import co.edu.autonoma.instructions.RightTurnInstruction;
+import co.edu.autonoma.instructions.SaveInstruction;
+import co.edu.autonoma.instructions.SetColorInstruction;
+import java.util.ArrayList;
+import co.edu.autonoma.instructions.SaveInstruction;
 import co.edu.autonoma.instructions.SetColorInstruction;
 import java.util.ArrayList;
 
@@ -69,6 +74,27 @@ public class TurtleCommandReader {
             arraylist.add(array[2]);
             arraylist.add(array[3]);
             canvas.setInstruction(rp);
+        }
+        
+        if(comand.equals("load") || comand.equals("l")){
+            LoadInstruction l= new LoadInstruction();
+            l.setType("l");
+            l.setValue(array[1]);
+            canvas.setInstruction(l);
+        }
+        
+        if(comand.equals("save") || comand.equals("s")){
+            SaveInstruction s= new SaveInstruction();
+            s.setType("s");
+            s.setValue(array[1]);
+            canvas.setInstruction(s);
+        }
+        
+        if(comand.equals("setcolor") || comand.equals("sc")){
+            SetColorInstruction sc= new SetColorInstruction();
+            sc.setType("sc");
+            sc.setValue(array[1]);
+            canvas.setInstruction(sc);
         }
     }
     

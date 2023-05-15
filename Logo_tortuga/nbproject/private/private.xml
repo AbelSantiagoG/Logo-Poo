@@ -3,6 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/migue/OneDrive/Documentos/UAM/SEMESTRE%20%233/POO/NetBeansProjects/Practica/Logo_POO/Logo-Poo/Logo_tortuga/src/co/edu/autonoma/elements/Exceptions/NegativeValueException.java</file>
+            <file>file:/C:/Users/migue/OneDrive/Documentos/UAM/SEMESTRE%20%233/POO/NetBeansProjects/Practica/Logo_POO/Logo-Poo/Logo_tortuga/src/co/edu/autonoma/elements/Exceptions/ComandoInvalidoException.java</file>
+            <file>file:/C:/Users/migue/OneDrive/Documentos/UAM/SEMESTRE%20%233/POO/NetBeansProjects/Practica/Logo_POO/Logo-Poo/Logo_tortuga/src/co/edu/autonoma/gui/MainWindow.java</file>
+            <file>file:/C:/Users/migue/OneDrive/Documentos/UAM/SEMESTRE%20%233/POO/NetBeansProjects/Practica/Logo_POO/Logo-Poo/Logo_tortuga/src/co/edu/autonoma/instructions/ForwardInstruction.java</file>
+            <file>file:/C:/Users/migue/OneDrive/Documentos/UAM/SEMESTRE%20%233/POO/NetBeansProjects/Practica/Logo_POO/Logo-Poo/Logo_tortuga/src/co/edu/autonoma/elements/Turtle.java</file>
+            <file>file:/C:/Users/migue/OneDrive/Documentos/UAM/SEMESTRE%20%233/POO/NetBeansProjects/Practica/Logo_POO/Logo-Poo/Logo_tortuga/src/co/edu/autonoma/elements/Canvas.java</file>
+=======
             <file>file:/C:/Users/HP-15EC107LA/OneDrive/Escritorio/Corte%203%20Poo%20%20-%20Logo/Logo_tortuga/src/co/edu/autonoma/elements/Canvas.java</file>
             <file>file:/C:/Users/HP-15EC107LA/OneDrive/Escritorio/Corte%203%20Poo%20%20-%20Logo/Logo_tortuga/src/co/edu/autonoma/elements/Dimensionable.java</file>
             <file>file:/C:/Users/HP-15EC107LA/OneDrive/Escritorio/Corte%203%20Poo%20%20-%20Logo/Logo_tortuga/src/co/edu/autonoma/gui/MainWindow.java</file>
@@ -12,6 +20,7 @@
             <file>file:/C:/Users/HP-15EC107LA/OneDrive/Escritorio/Corte%203%20Poo%20%20-%20Logo/Logo_tortuga/src/co/edu/autonoma/instructions/Instruction.java</file>
             <file>file:/C:/Users/HP-15EC107LA/OneDrive/Escritorio/Corte%203%20Poo%20%20-%20Logo/Logo_tortuga/src/co/edu/autonoma/elements/TurtleCommandReader.java</file>
             <file>file:/C:/Users/HP-15EC107LA/OneDrive/Escritorio/Corte%203%20Poo%20%20-%20Logo/Logo_tortuga/src/co/edu/autonoma/elements/Turtle.java</file>
+>>>>>>> e6430df11c58a9f874aa2f4d41f143bf373a52c0
         </group>
     </open-files>
 </project-private>
