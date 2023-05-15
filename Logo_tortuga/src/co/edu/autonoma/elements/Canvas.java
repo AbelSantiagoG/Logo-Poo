@@ -4,6 +4,7 @@
  */
 package co.edu.autonoma.elements;
 
+import co.edu.autonoma.elements.Exceptions.NegativeValueException;
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -20,6 +21,26 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
         turtle.setArea(this);
         turtle.setDrawable(this);
     }
+    
+    public void handleComands(String comand, String value){
+        
+        if(comand.equals("fd") || comand.equals("forward") ||
+           comand.equals("bd") || comand.equals("backward")||
+           comand.equals("rt") || comand.equals("rightturn")||
+           comand.equals("lt") || comand.equals("leftturn")){
+           int amount = Integer.parseInt(value);
+            if(amount < 0){
+                throw new NegativeValueException();                     
+            }else{
+                //turtle.move(comand, amount);
+            }
+        }
+        //if()
+        
+        
+            
+    }
+    
 
     @Override
     public void draw(Graphics g) {
