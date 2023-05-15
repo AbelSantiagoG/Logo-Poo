@@ -4,10 +4,21 @@
  */
 package co.edu.autonoma.elements;
 
+import co.edu.autonoma.Exceptions.CanNotBeRepeatedException;
 import co.edu.autonoma.instructions.BackwardInstruction;
+import co.edu.autonoma.instructions.ForwardInstruction;
+import co.edu.autonoma.instructions.HomeInstruction;
 import co.edu.autonoma.instructions.Instruction;
+import co.edu.autonoma.instructions.LeftTurnInstruction;
+import co.edu.autonoma.instructions.LoadInstruction;
+import co.edu.autonoma.instructions.RepeatInstruction;
+import co.edu.autonoma.instructions.ResetInstruction;
+import co.edu.autonoma.instructions.RightTurnInstruction;
+import co.edu.autonoma.instructions.SaveInstruction;
+import co.edu.autonoma.instructions.SetColorInstruction;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 /**
  *
@@ -27,25 +38,56 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
     public void handleInstruction(){
         if(instruction instanceof BackwardInstruction){
             int value= ((BackwardInstruction)instruction).getValue();
+            turtle.moveBk(value);
+        }
+        if(instruction instanceof ForwardInstruction){
+            int value= ((ForwardInstruction)instruction).getValue();
             turtle.moveFd(value);
         }
-        if(instruction instanceof BackwardInstruction){
+        if(instruction instanceof LeftTurnInstruction){
+            int value= ((LeftTurnInstruction)instruction).getValue();
+            turtle.leftTurn(value);
+        }
+        if(instruction instanceof RightTurnInstruction){
+            int value= ((RightTurnInstruction)instruction).getValue();
+            turtle.rightTurn(value);
+        }
+        if(instruction instanceof HomeInstruction){
             
         }
-        if(instruction instanceof BackwardInstruction) ){
+        if(instruction instanceof SaveInstruction){
             
         }
-        if(instruction instanceof BackwardInstruction){
+        if(instruction instanceof ResetInstruction){
             
         }
-        if(instruction instanceof BackwardInstruction){
+        if(instruction instanceof SetColorInstruction){
             
         }
-        if(instruction instanceof BackwardInstruction){
-            
+        if(instruction instanceof RepeatInstruction){
+            repeat();
         }
-        if(instruction instanceof BackwardInstruction){
-            
+    }
+    
+    public void repeat(){
+        ArrayList<String> array= ((RepeatInstruction)instruction).getArray();
+        String comand= array.get(0);
+        for(int i=0; i< ((RepeatInstruction)instruction).getValue(); i++){
+            if(comand.equals("fd") || comand.equals("forward")){
+                int value= ((ForwardInstruction)instruction).getValue();
+                turtle.moveFd(value);
+            }else if(comand.equals("bk") || comand.equals("backward")){
+                int value= ((BackwardInstruction)instruction).getValue();
+                turtle.moveBk(value);
+            }else if(comand.equals("lt") || comand.equals("leftturn")){
+                int value= ((LeftTurnInstruction)instruction).getValue();
+                turtle.leftTurn(value);
+            }else if(comand.equals("rt") || comand.equals("rightturn")){
+                int value= ((RightTurnInstruction)instruction).getValue();
+                turtle.rightTurn(value);
+            }else{
+                throw new CanNotBeRepeatedException();
+            }
         }
     }
     

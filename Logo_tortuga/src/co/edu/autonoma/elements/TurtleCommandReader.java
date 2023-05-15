@@ -11,6 +11,7 @@ import co.edu.autonoma.instructions.LeftTurnInstruction;
 import co.edu.autonoma.instructions.RepeatInstruction;
 import co.edu.autonoma.instructions.ResetInstruction;
 import co.edu.autonoma.instructions.RightTurnInstruction;
+import co.edu.autonoma.instructions.SetColorInstruction;
 import java.util.ArrayList;
 
 /**
