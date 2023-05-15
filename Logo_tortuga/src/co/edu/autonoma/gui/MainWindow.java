@@ -6,6 +6,7 @@ package co.edu.autonoma.gui;
 
 import co.edu.autonoma.elements.Canvas;
 import co.edu.autonoma.elements.Drawable;
+import java.awt.Color;
 import java.awt.Graphics;
 
 /**
@@ -18,6 +19,7 @@ public class MainWindow extends javax.swing.JFrame implements Drawable{
      * Creates new form MainWindow
      */
     public MainWindow() {
+        setResizable(false);
         initComponents();
     }
     
@@ -28,7 +30,10 @@ public class MainWindow extends javax.swing.JFrame implements Drawable{
     
     @Override
     public void paint(Graphics g){
+        super.paint(g);
         canvas.draw(g);
+        g.setColor(Color.black);
+        g.drawLine(0, 390, getWidth(), 390);
     }
 
     /**
@@ -40,21 +45,52 @@ public class MainWindow extends javax.swing.JFrame implements Drawable{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnAccept = new javax.swing.JButton();
+        txtCommandText = new javax.swing.JTextField();
+        btnShowList = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnAccept.setText("Accept");
+
+        txtCommandText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCommandTextActionPerformed(evt);
+            }
+        });
+
+        btnShowList.setText("Show list");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addComponent(txtCommandText, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(98, 98, 98)
+                .addComponent(btnAccept)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addComponent(btnShowList)
+                .addGap(66, 66, 66))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(399, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCommandText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAccept)
+                    .addComponent(btnShowList))
+                .addGap(48, 48, 48))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtCommandTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCommandTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCommandTextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +116,8 @@ public class MainWindow extends javax.swing.JFrame implements Drawable{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAccept;
+    private javax.swing.JButton btnShowList;
+    private javax.swing.JTextField txtCommandText;
     // End of variables declaration//GEN-END:variables
 }

@@ -24,7 +24,7 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
     @Override
     public void draw(Graphics g) {
         g.setColor(Color.white);
-        g.fillRect(x, y, width, height);
+        g.fillRect(x, y, width, 389);
         
         turtle.draw(g);
     }
