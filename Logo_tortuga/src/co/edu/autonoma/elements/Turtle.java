@@ -14,8 +14,6 @@ import javax.swing.ImageIcon;
  */
 public class Turtle extends Sprite {
     private int angle;
-    private int x2;
-    private int y2;
     
     public Turtle(int x, int y) {
         super(x, y, 70, 70);
@@ -43,6 +41,7 @@ public class Turtle extends Sprite {
     public void moveFd(int value){
         x+= Math.sin(angle)*value;
         y-= Math.cos(angle)*value;
+        System.out.println(y);
     }
     
     public void moveBk(int value){

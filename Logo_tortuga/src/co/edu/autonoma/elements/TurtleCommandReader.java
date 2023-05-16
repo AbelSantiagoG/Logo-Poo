@@ -46,6 +46,8 @@ public class TurtleCommandReader {
             ForwardInstruction fd= new ForwardInstruction();
             fd.setType("fd");
             fd.setValue(Integer.parseInt(array[1]));
+            canvas.getTurtle().moveFd(Integer.parseInt(array[1]));
+            System.out.println(array[1]+ fd.getValue());
             canvas.setInstruction(fd);
         }
         if(comand.equals("bd") || comand.equals("backward")){

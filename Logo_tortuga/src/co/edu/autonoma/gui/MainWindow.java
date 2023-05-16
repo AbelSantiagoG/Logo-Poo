@@ -108,7 +108,9 @@ public class MainWindow extends javax.swing.JFrame implements Drawable{
         String data = this.txtCommandText.getText().toLowerCase();
         String[] array= data.split(" ");
         reader.read(array);
-        
+        int cont = canvas.getTurtle().getY();
+        JOptionPane.showMessageDialog(null, cont);
+        repaint();
     }//GEN-LAST:event_btnAcceptActionPerformed
 
     /**
