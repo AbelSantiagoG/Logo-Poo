@@ -32,6 +32,7 @@ public class MainWindow extends javax.swing.JFrame implements Drawable{
         reader= new TurtleCommandReader(canvas);
     }
     
+
     @Override
     public void paint(Graphics g){
         super.paint(g);
