@@ -62,7 +62,7 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
               turtle.setTraces(oldTraces);
               redraw();
           }else if(i instanceof SaveInstruction){
-
+              
           }else if(i instanceof ResetInstruction){
               Turtle turtle= new Turtle(initialXTurtle, initialYTurtle);
               setTurtle(turtle);
@@ -84,16 +84,16 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
         String comand= array.get(0);
         for(int i=0; i< ((RepeatInstruction)j).getValue(); i++){
             if(comand.equals("fd") || comand.equals("forward")){
-                int value= ((ForwardInstruction)j).getValue();
+                int value= Integer.parseInt(array.get(3));
                 turtle.moveFd(value);
             }else if(comand.equals("bk") || comand.equals("backward")){
-                int value= ((BackwardInstruction)j).getValue();
+                int value= Integer.parseInt(array.get(3));
                 turtle.moveBk(value);
             }else if(comand.equals("lt") || comand.equals("leftturn")){
-                int value= ((LeftTurnInstruction)j).getValue();
+                int value= Integer.parseInt(array.get(3));
                 turtle.leftTurn(value);
             }else if(comand.equals("rt") || comand.equals("rightturn")){
-                int value= ((RightTurnInstruction)j).getValue();
+                int value= Integer.parseInt(array.get(3));
                 turtle.rightTurn(value);
             }else{
                 throw new CanNotBeRepeatedException();

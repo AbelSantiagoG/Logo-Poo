@@ -96,12 +96,14 @@ public class TurtleCommandReader {
                 
             }
         }else if(comand.equals("repeat")){
+            //repeat 4 [ fd ; 40 ]
             RepeatInstruction rp= new RepeatInstruction();
             rp.setType("repeat");
             rp.setValue(Integer.parseInt(array[1]));
             ArrayList<String> arraylist= new ArrayList<>();
-            arraylist.add(array[2]);
             arraylist.add(array[3]);
+            arraylist.add(array[5]);
+            rp.setArray(arraylist);
             canvas.handleInstruction(rp);
         }else if(comand.equals("load") || comand.equals("l")){
             LoadInstruction l= new LoadInstruction();
