@@ -28,6 +28,7 @@ public class TurtleCommandReader {
     
     public TurtleCommandReader(Canvas canva){
         this.canvas= canva;
+        
     }
     
     public void read(String [] array){  
@@ -35,38 +36,36 @@ public class TurtleCommandReader {
         if(comand.equals("r")|| comand.equals("reset")){
             ResetInstruction r= new ResetInstruction();
             r.setType("r");
-            canvas.setInstruction(r);
+            canvas.handleInstruction(r);
         }
         if(comand.equals("h")|| comand.equals("home")){
             HomeInstruction h = new HomeInstruction();
             h.setType("h");
-            canvas.setInstruction(h);
+            canvas.handleInstruction(h);
         }
         if(comand.equals("fd") || comand.equals("forward")){
             ForwardInstruction fd= new ForwardInstruction();
             fd.setType("fd");
             fd.setValue(Integer.parseInt(array[1]));
-            canvas.getTurtle().moveFd(Integer.parseInt(array[1]));
-            System.out.println(array[1]+ fd.getValue());
-            canvas.setInstruction(fd);
+            canvas.handleInstruction(fd);
         }
         if(comand.equals("bd") || comand.equals("backward")){
             BackwardInstruction bd= new BackwardInstruction();
             bd.setType("bd");
             bd.setValue(Integer.parseInt(array[1]));
-            canvas.setInstruction(bd);
+            canvas.handleInstruction(bd);
         }
         if(comand.equals("rt") || comand.equals("rightturn")){
             RightTurnInstruction rt= new RightTurnInstruction();
             rt.setType("rt");
             rt.setValue(Integer.parseInt(array[1]));
-            canvas.setInstruction(rt);
+            canvas.handleInstruction(rt);
         }
         if(comand.equals("lt") || comand.equals("leftturn")){
             LeftTurnInstruction lt= new LeftTurnInstruction();
             lt.setType("lt");
             lt.setValue(Integer.parseInt(array[1]));
-            canvas.setInstruction(lt);
+            canvas.handleInstruction(lt);
         }
         if(comand.equals("repeat")){
             RepeatInstruction rp= new RepeatInstruction();
@@ -75,28 +74,28 @@ public class TurtleCommandReader {
             ArrayList<String> arraylist= new ArrayList<>();
             arraylist.add(array[2]);
             arraylist.add(array[3]);
-            canvas.setInstruction(rp);
+            canvas.handleInstruction(rp);
         }
         
         if(comand.equals("load") || comand.equals("l")){
             LoadInstruction l= new LoadInstruction();
             l.setType("l");
             l.setValue(array[1]);
-            canvas.setInstruction(l);
+            canvas.handleInstruction(l);
         }
         
         if(comand.equals("save") || comand.equals("s")){
             SaveInstruction s= new SaveInstruction();
             s.setType("s");
             s.setValue(array[1]);
-            canvas.setInstruction(s);
+            canvas.handleInstruction(s);
         }
         
         if(comand.equals("setcolor") || comand.equals("sc")){
             SetColorInstruction sc= new SetColorInstruction();
             sc.setType("sc");
             sc.setValue(array[1]);
-            canvas.setInstruction(sc);
+            canvas.handleInstruction(sc);
         }
     }
     

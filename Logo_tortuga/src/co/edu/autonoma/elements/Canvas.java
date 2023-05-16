@@ -35,55 +35,67 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
         turtle.setDrawable(this);
     }
     
-    public void handleInstruction(){
-        if(instruction instanceof BackwardInstruction){
-            int value= ((BackwardInstruction)instruction).getValue();
+    
+    public void handleInstruction(Instruction i){
+        System.out.println(i.getType());
+        if(i instanceof BackwardInstruction){
+            int value= ((BackwardInstruction)i).getValue();
             turtle.moveBk(value);
+            redraw();
         }
-        if(instruction instanceof ForwardInstruction){
-            int value= ((ForwardInstruction)instruction).getValue();
+        if(i instanceof ForwardInstruction){
+            int value= ((ForwardInstruction)i).getValue();
             turtle.moveFd(value);
+            redraw();
         }
-        if(instruction instanceof LeftTurnInstruction){
-            int value= ((LeftTurnInstruction)instruction).getValue();
+        if(i instanceof LeftTurnInstruction){
+            System.out.println("3");
+            int value= ((LeftTurnInstruction)i).getValue();
             turtle.leftTurn(value);
+            redraw();
         }
-        if(instruction instanceof RightTurnInstruction){
-            int value= ((RightTurnInstruction)instruction).getValue();
+        if(i instanceof RightTurnInstruction){
+            System.out.println("4");
+            int value= ((RightTurnInstruction)i).getValue();
             turtle.rightTurn(value);
+            redraw();
         }
-        if(instruction instanceof HomeInstruction){
-            
+        if(i instanceof HomeInstruction){
+            System.out.println("5");
         }
-        if(instruction instanceof SaveInstruction){
-            
+        if(i instanceof SaveInstruction){
+            System.out.println("6");
         }
-        if(instruction instanceof ResetInstruction){
-            
+        if(i instanceof ResetInstruction){
+            System.out.println("7");
         }
-        if(instruction instanceof SetColorInstruction){
-            
+        if(i instanceof SetColorInstruction){
+            System.out.println("8");
         }
-        if(instruction instanceof RepeatInstruction){
+        if(i instanceof RepeatInstruction){
+            System.out.println("9");
             repeat();
+        }
+        if (i == null){
+            System.out.println("está nula");
         }
     }
     
     public void repeat(){
         ArrayList<String> array= ((RepeatInstruction)instruction).getArray();
         String comand= array.get(0);
-        for(int i=0; i< ((RepeatInstruction)instruction).getValue(); i++){
+        for(int i=0; i< ((RepeatInstruction)this.instruction).getValue(); i++){
             if(comand.equals("fd") || comand.equals("forward")){
-                int value= ((ForwardInstruction)instruction).getValue();
+                int value= ((ForwardInstruction)this.instruction).getValue();
                 turtle.moveFd(value);
             }else if(comand.equals("bk") || comand.equals("backward")){
-                int value= ((BackwardInstruction)instruction).getValue();
+                int value= ((BackwardInstruction)this.instruction).getValue();
                 turtle.moveBk(value);
             }else if(comand.equals("lt") || comand.equals("leftturn")){
-                int value= ((LeftTurnInstruction)instruction).getValue();
+                int value= ((LeftTurnInstruction)this.instruction).getValue();
                 turtle.leftTurn(value);
             }else if(comand.equals("rt") || comand.equals("rightturn")){
-                int value= ((RightTurnInstruction)instruction).getValue();
+                int value= ((RightTurnInstruction)this.instruction).getValue();
                 turtle.rightTurn(value);
             }else{
                 throw new CanNotBeRepeatedException();
@@ -104,7 +116,7 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
         g.setColor(Color.white);
         g.fillRect(x, y, width, 389);
         
-        getTurtle().draw(g);
+        turtle.draw(g);
     }
 
     @Override
@@ -128,17 +140,18 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
     }
 
     /**
-     * @return the instruction
+     * @return the i
      */
     public Instruction getInstruction() {
         return instruction;
     }
 
     /**
-     * @param instruction the instruction to set
+     * @param instruction the i to set
      */
     public void setInstruction(Instruction instruction) {
         this.instruction = instruction;
+        System.out.println(instruction.getType());
     }
     
     

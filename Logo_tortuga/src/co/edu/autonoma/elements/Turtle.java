@@ -17,7 +17,7 @@ public class Turtle extends Sprite {
     
     public Turtle(int x, int y) {
         super(x, y, 70, 70);
-        angle= 270;
+        angle= 0;
     }
 
     @Override
@@ -57,40 +57,26 @@ public class Turtle extends Sprite {
         angle-= value;
     }
     
-    public boolean move(String command, int value){
-        if(command.equals("fd") | command.equals("forward")){
-            moveFd(value);
-        }
-        if(command.equals("bk") | command.equals("backward")){
-            moveBk(value);
-        }
-        if(command.equals("rt") | command.equals("rightturn")){
-            rightTurn(value);
-        }
-        if(command.equals("lt") | command.equals("leftturn")){
-            leftTurn(value);
-        }
-        
-        int ox = x;
-        int oy = y;
 
-        if(x < this.area.getX())
-            x = this.area.getX();
-            
-        if(y < this.area.getY())
-            y = this.area.getY();
-
-        if(x + this.width > this.area.getWidth())
-            x = this.area.getWidth() - this.width;
-        
-        if(y + this.height > this.area.getHeight())
-            y = this.area.getHeight()- this.height;
-        
-        if(x == ox & y == oy)
-            return false;
-        
-        return true;
-    }
+//        int ox = x;
+//        int oy = y;
+//
+//        if(x < this.area.getX())
+//            x = this.area.getX();
+//            
+//        if(y < this.area.getY())
+//            y = this.area.getY();
+//
+//        if(x + this.width > this.area.getWidth())
+//            x = this.area.getWidth() - this.width;
+//        
+//        if(y + this.height > this.area.getHeight())
+//            y = this.area.getHeight()- this.height;
+//        
+//        if(x == ox & y == oy)
+//            return false;
+//        
+//        return true;
     
     
 }
