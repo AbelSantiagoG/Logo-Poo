@@ -100,6 +100,7 @@ public class TurtleCommandReader {
             rp.setType("repeat");
             rp.setValue(Integer.parseInt(array[1]));
             ArrayList<String> arraylist= new ArrayList<>();
+            //[fd 45; fd]
             String[] arrayComands= block.split(";");
             for(int i=0; i<arrayComands.length; i++){
                 arraylist.add(arrayComands[i]);

@@ -11,6 +11,7 @@ import co.edu.autonoma.instructions.ForwardInstruction;
 import co.edu.autonoma.instructions.HomeInstruction;
 import co.edu.autonoma.instructions.Instruction;
 import co.edu.autonoma.instructions.LeftTurnInstruction;
+import co.edu.autonoma.instructions.LoadInstruction;
 import co.edu.autonoma.instructions.RepeatInstruction;
 import co.edu.autonoma.instructions.ResetInstruction;
 import co.edu.autonoma.instructions.RightTurnInstruction;
@@ -26,7 +27,6 @@ import java.util.ArrayList;
  */
 public class Canvas extends Sprite implements Dimensionable, Drawable {
     private Turtle turtle;
-    private Instruction instruction;
     public static final int initialXTurtle= 275;
     public static final int initialYTurtle= 205;
             
@@ -63,11 +63,15 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
               redraw();
           }else if(i instanceof SaveInstruction){
               
+          }else if(i instanceof LoadInstruction){
+              
           }else if(i instanceof ResetInstruction){
               Turtle turtle= new Turtle(initialXTurtle, initialYTurtle);
               setTurtle(turtle);
           }else if(i instanceof SetColorInstruction){
-              String value= ((SetColorInstruction)instruction).getValue();
+              String value= ((SetColorInstruction)i).getValue();
+              Color color= turtle.getColor(value);
+              
           }else if(i instanceof RepeatInstruction){
               try{
                   repeat(i);
@@ -86,29 +90,21 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
             for(int i=0; i<array.size(); i++){
                 String comand=(array.get(i)).split(" ")[i];
                 int value= Integer.parseInt((array.get(i)).split(" ")[i+1]);
-                    if(comand.equals("fd") || comand.equals("forward")){
-                        turtle.moveFd(value);
-                    }else if(comand.equals("bd") || comand.equals("backward")){
-                        turtle.moveBk(value);
-                    }else if(comand.equals("lt") || comand.equals("leftturn")){
-                        turtle.leftTurn(value);
-                    }else if(comand.equals("rt") || comand.equals("rightturn")){
-                        turtle.rightTurn(value);
-                    }else{
-                        throw new CanNotBeRepeatedException();
-                    }
+                if(comand.equals("fd") || comand.equals("forward")){
+                    turtle.moveFd(value);
+                }else if(comand.equals("bd") || comand.equals("backward")){
+                    turtle.moveBk(value);
+                }else if(comand.equals("lt") || comand.equals("leftturn")){
+                    turtle.leftTurn(value);
+                }else if(comand.equals("rt") || comand.equals("rightturn")){
+                    turtle.rightTurn(value);
+                }else{
+                    throw new CanNotBeRepeatedException();
+                }
             }
         }
     }
     
-    public void resetAll(String comand){
-        
-    }
-    
-    public void resetPosition(String comand){
-        
-    }
-
     @Override
     public void draw(Graphics g) {
         g.setColor(Color.white);
@@ -136,21 +132,4 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
     public void setTurtle(Turtle turtle) {
         this.turtle = turtle;
     }
-
-    /**
-     * @return the i
-     */
-    public Instruction getInstruction() {
-        return instruction;
-    }
-
-    /**
-     * @param instruction the i to set
-     */
-    public void setInstruction(Instruction instruction) {
-        this.instruction = instruction;
-        System.out.println(instruction.getType());
-    }
-    
-    
 }

@@ -27,7 +27,7 @@ public class Trace{
     }
     
 
-    public void draw(Graphics g) {
+    public void draw(Graphics g){
         g.setColor(color);
         g.drawLine(x1, y1, x2,y2);
     }
@@ -58,6 +58,20 @@ public class Trace{
      */
     public void setY2(int y2) {
         this.y2 = y2;
+    }
+
+    /**
+     * @return the color
+     */
+    public Color getColor() {
+        return color;
+    }
+
+    /**
+     * @param color the color to set
+     */
+    public void setColor(Color color) {
+        this.color = color;
     }
     
     

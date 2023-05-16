@@ -35,7 +35,49 @@ public class Turtle extends Sprite {
             actual.draw(g);
         }
     }
-
+    
+    public Color getColor(String color){
+        Color newColor;
+        switch (color) {
+            case "orange":
+                newColor=new Color(255, 87, 4);
+                return newColor;
+            case "pink":
+                newColor=new Color(251, 93, 211);
+                return newColor;
+            case "white":
+                newColor=new Color(255, 255, 255);
+                return newColor;
+            case "yellow":
+                newColor=new Color(254, 251, 14);
+                return newColor;
+            case "black":
+                newColor=new Color(0, 0, 0);
+                return newColor;
+            case "blue":
+                newColor=new Color(0, 0, 255);
+                return newColor;
+            case "cyan":
+                newColor=new Color(15, 253, 242);
+                return newColor;
+            case "gray":
+                newColor=new Color(132, 138, 138);
+                return newColor;
+            case "green":
+                newColor=new Color(0, 255, 0);
+                return newColor;
+            case "red":
+                newColor=new Color(255, 0, 0);
+                return newColor;
+            case "purple":
+                newColor=new Color(151, 10, 21);
+                return newColor;
+            default:
+                newColor=new Color(0, 0, 0);
+                return newColor;
+        }
+    }
+    
     @Override
     public void draw(Graphics g) {
         ImageIcon imagen=new ImageIcon(getClass().getResource("tortuga-removebg-preview.png"));         
