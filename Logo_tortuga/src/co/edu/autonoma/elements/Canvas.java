@@ -5,6 +5,7 @@
 package co.edu.autonoma.elements;
 
 import co.edu.autonoma.Exceptions.CanNotBeRepeatedException;
+import co.edu.autonoma.Exceptions.InvalidInstructionException;
 import co.edu.autonoma.instructions.BackwardInstruction;
 import co.edu.autonoma.instructions.ForwardInstruction;
 import co.edu.autonoma.instructions.HomeInstruction;
@@ -41,42 +42,32 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
             int value= ((BackwardInstruction)i).getValue();
             turtle.moveBk(value);
             redraw();
-        }
-        if(i instanceof ForwardInstruction){
+        }else if(i instanceof ForwardInstruction){
             int value= ((ForwardInstruction)i).getValue();
             turtle.moveFd(value);
             redraw();
-        }
-        if(i instanceof LeftTurnInstruction){
+        }else if(i instanceof LeftTurnInstruction){
             System.out.println("3");
             int value= ((LeftTurnInstruction)i).getValue();
             turtle.leftTurn(value);
             redraw();
-        }
-        if(i instanceof RightTurnInstruction){
+        }else if(i instanceof RightTurnInstruction){
             System.out.println("4");
             int value= ((RightTurnInstruction)i).getValue();
             turtle.rightTurn(value);
             redraw();
-        }
-        if(i instanceof HomeInstruction){
-            System.out.println("5");
-        }
-        if(i instanceof SaveInstruction){
-            System.out.println("6");
-        }
-        if(i instanceof ResetInstruction){
-            System.out.println("7");
-        }
-        if(i instanceof SetColorInstruction){
-            System.out.println("8");
-        }
-        if(i instanceof RepeatInstruction){
-            System.out.println("9");
+        }else if(i instanceof HomeInstruction){
+            
+        }else if(i instanceof SaveInstruction){
+            
+        }else if(i instanceof ResetInstruction){
+            
+        }else if(i instanceof SetColorInstruction){
+            
+        }else if(i instanceof RepeatInstruction){
             repeat();
-        }
-        if (i == null){
-            System.out.println("está nula");
+        }else{
+            throw new InvalidInstructionException();
         }
     }
     
