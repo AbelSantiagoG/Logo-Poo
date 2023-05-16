@@ -41,6 +41,7 @@ public class Turtle extends Sprite {
     public void moveFd(int value){
         x+= Math.sin(angle)*value;
         y-= Math.cos(angle)*value;
+        System.out.println(y);
     }
     
     public void moveBk(int value){

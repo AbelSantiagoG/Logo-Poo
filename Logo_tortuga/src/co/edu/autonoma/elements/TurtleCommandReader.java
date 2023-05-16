@@ -53,19 +53,19 @@ public class TurtleCommandReader {
             BackwardInstruction bd= new BackwardInstruction();
             bd.setType("bd");
             bd.setValue(Integer.parseInt(array[1]));
-            canvas.setInstruction(bd);
+            canvas.handleInstruction(bd);
         }
         if(comand.equals("rt") || comand.equals("rightturn")){
             RightTurnInstruction rt= new RightTurnInstruction();
             rt.setType("rt");
             rt.setValue(Integer.parseInt(array[1]));
-            canvas.setInstruction(rt);
+            canvas.handleInstruction(rt);
         }
         if(comand.equals("lt") || comand.equals("leftturn")){
             LeftTurnInstruction lt= new LeftTurnInstruction();
             lt.setType("lt");
             lt.setValue(Integer.parseInt(array[1]));
-            canvas.setInstruction(lt);
+            canvas.handleInstruction(lt);
         }
         if(comand.equals("repeat")){
             RepeatInstruction rp= new RepeatInstruction();
@@ -74,28 +74,28 @@ public class TurtleCommandReader {
             ArrayList<String> arraylist= new ArrayList<>();
             arraylist.add(array[2]);
             arraylist.add(array[3]);
-            canvas.setInstruction(rp);
+            canvas.handleInstruction(rp);
         }
         
         if(comand.equals("load") || comand.equals("l")){
             LoadInstruction l= new LoadInstruction();
             l.setType("l");
             l.setValue(array[1]);
-            canvas.setInstruction(l);
+            canvas.handleInstruction(l);
         }
         
         if(comand.equals("save") || comand.equals("s")){
             SaveInstruction s= new SaveInstruction();
             s.setType("s");
             s.setValue(array[1]);
-            canvas.setInstruction(s);
+            canvas.handleInstruction(s);
         }
         
         if(comand.equals("setcolor") || comand.equals("sc")){
             SetColorInstruction sc= new SetColorInstruction();
             sc.setType("sc");
             sc.setValue(array[1]);
-            canvas.setInstruction(sc);
+            canvas.handleInstruction(sc);
         }
     }
     
