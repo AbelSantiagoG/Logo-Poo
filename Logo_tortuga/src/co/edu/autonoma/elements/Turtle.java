@@ -17,7 +17,7 @@ public class Turtle extends Sprite {
     
     public Turtle(int x, int y) {
         super(x, y, 70, 70);
-        angle= 270;
+        angle= 0;
     }
 
     @Override
@@ -25,8 +25,6 @@ public class Turtle extends Sprite {
         ImageIcon imagen=new ImageIcon(getClass().getResource("tortuga-removebg-preview.png"));         
         g.setColor(new Color(128,64,0));         
         g.drawImage(imagen.getImage(),x, y, width, height,null);
-        System.out.println(x);
-        System.out.println(y);
     }
     
     private boolean isValidPosition(int x, int y)

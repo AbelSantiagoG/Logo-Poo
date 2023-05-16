@@ -41,7 +41,7 @@ public class TurtleCommandReader {
         if(comand.equals("h")|| comand.equals("home")){
             HomeInstruction h = new HomeInstruction();
             h.setType("h");
-            canvas.setInstruction(h);
+            canvas.handleInstruction(h);
         }
         if(comand.equals("fd") || comand.equals("forward")){
             ForwardInstruction fd= new ForwardInstruction();

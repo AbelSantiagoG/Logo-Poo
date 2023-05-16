@@ -35,7 +35,6 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
         turtle.setDrawable(this);
     }
     
-    
     public void handleInstruction(Instruction i){
         System.out.println(i.getType());
         if(i instanceof BackwardInstruction){
