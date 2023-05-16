@@ -108,8 +108,12 @@ public class MainWindow extends javax.swing.JFrame implements Drawable{
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
         String data = this.txtCommandText.getText().toLowerCase();
         String[] array= data.split(" ");
+        String block= "";
+        if(array.length > 2){
+            block= data.substring(data.indexOf("[") +1, data.indexOf("]"));
+        }
         try{
-           reader.read(array); 
+           reader.read(array, block); 
         }catch(NegativeValueException e){
             JOptionPane.showMessageDialog(this, "Ingrese un valor positivo");
         }catch(InvalidInstructionException j){

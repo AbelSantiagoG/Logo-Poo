@@ -33,7 +33,7 @@ public class TurtleCommandReader {
         
     }
     
-    public void read(String [] array){  
+    public void read(String [] array, String block){    
         String comand = array[0];
         if(comand.equals("r")|| comand.equals("reset")){
             ResetInstruction r= new ResetInstruction();
@@ -96,13 +96,14 @@ public class TurtleCommandReader {
                 
             }
         }else if(comand.equals("repeat")){
-            //repeat 4 [ fd ; 40 ]
             RepeatInstruction rp= new RepeatInstruction();
             rp.setType("repeat");
             rp.setValue(Integer.parseInt(array[1]));
             ArrayList<String> arraylist= new ArrayList<>();
-            arraylist.add(array[3]);
-            arraylist.add(array[5]);
+            String[] arrayComands= block.split(";");
+            for(int i=0; i<arrayComands.length; i++){
+                arraylist.add(arrayComands[i]);
+            }
             rp.setArray(arraylist);
             canvas.handleInstruction(rp);
         }else if(comand.equals("load") || comand.equals("l")){

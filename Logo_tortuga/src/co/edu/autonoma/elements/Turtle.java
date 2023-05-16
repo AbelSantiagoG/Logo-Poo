@@ -60,6 +60,8 @@ public class Turtle extends Sprite {
         addTraces(xOld+width/2, yOld+height,x,y);
     }
     
+    
+    
     public void rightTurn(int value){
         angle+= value;
     }

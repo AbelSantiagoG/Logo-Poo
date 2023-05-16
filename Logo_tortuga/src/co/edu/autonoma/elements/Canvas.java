@@ -80,23 +80,23 @@ public class Canvas extends Sprite implements Dimensionable, Drawable {
     }
     
     public void repeat(Instruction j){
+        //repeat 4 [fd 50; rt 90]
         ArrayList<String> array= ((RepeatInstruction)j).getArray();
-        String comand= array.get(0);
-        for(int i=0; i< ((RepeatInstruction)j).getValue(); i++){
-            if(comand.equals("fd") || comand.equals("forward")){
-                int value= Integer.parseInt(array.get(3));
-                turtle.moveFd(value);
-            }else if(comand.equals("bk") || comand.equals("backward")){
-                int value= Integer.parseInt(array.get(3));
-                turtle.moveBk(value);
-            }else if(comand.equals("lt") || comand.equals("leftturn")){
-                int value= Integer.parseInt(array.get(3));
-                turtle.leftTurn(value);
-            }else if(comand.equals("rt") || comand.equals("rightturn")){
-                int value= Integer.parseInt(array.get(3));
-                turtle.rightTurn(value);
-            }else{
-                throw new CanNotBeRepeatedException();
+        for(int h=0; h<((RepeatInstruction)j).getValue(); h++){
+            for(int i=0; i<array.size(); i++){
+                String comand=(array.get(i)).split(" ")[i];
+                int value= Integer.parseInt((array.get(i)).split(" ")[i+1]);
+                    if(comand.equals("fd") || comand.equals("forward")){
+                        turtle.moveFd(value);
+                    }else if(comand.equals("bd") || comand.equals("backward")){
+                        turtle.moveBk(value);
+                    }else if(comand.equals("lt") || comand.equals("leftturn")){
+                        turtle.leftTurn(value);
+                    }else if(comand.equals("rt") || comand.equals("rightturn")){
+                        turtle.rightTurn(value);
+                    }else{
+                        throw new CanNotBeRepeatedException();
+                    }
             }
         }
     }
