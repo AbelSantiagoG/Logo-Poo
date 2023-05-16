@@ -4,11 +4,14 @@
  */
 package co.edu.autonoma.gui;
 
+import co.edu.autonoma.Exceptions.InvalidInstructionException;
+import co.edu.autonoma.Exceptions.NegativeValueException;
 import co.edu.autonoma.elements.Canvas;
 import co.edu.autonoma.elements.Drawable;
 import co.edu.autonoma.elements.TurtleCommandReader;
 import java.awt.Color;
 import java.awt.Graphics;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -105,7 +108,14 @@ public class MainWindow extends javax.swing.JFrame implements Drawable{
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
         String data = this.txtCommandText.getText().toLowerCase();
         String[] array= data.split(" ");
-        reader.read(array);
+        try{
+           reader.read(array); 
+        }catch(NegativeValueException e){
+            JOptionPane.showMessageDialog(this, "Ingrese un valor positivo");
+        }catch(InvalidInstructionException j){
+            JOptionPane.showMessageDialog(this, "Instrucción inválida");
+        }
+        
         repaint();
     }//GEN-LAST:event_btnAcceptActionPerformed
 

@@ -44,18 +44,6 @@ public class Turtle extends Sprite {
         drawTrace(g);
     }
     
-    private boolean isValidPosition(int x, int y)
-    {
-        if(x >= this.area.getX() &
-           x + this.width < this.area.getWidth() &
-           y >= this.area.getY() &
-           y + this.height <= this.area.getHeight())
-            return true;
-        
-        return false;
-    }
-    
-
     public void moveFd(int value){
         xOld= x;
         yOld = y;
@@ -78,10 +66,36 @@ public class Turtle extends Sprite {
     
     public void leftTurn(int value){
         angle-= value;
-    }
+    }  
     
+    
+//    int ox = x;
+//        int oy = y;
+//
+//        if(x < this.area.getX())
+//            x = this.area.getX();
+//            
+//        if(y < this.area.getY())
+//            y = this.area.getY();
+//
+//        if(x + this.width > this.area.getWidth())
+//            x = this.area.getWidth() - this.width;
+//        
+//        if(y + this.height > this.area.getHeight())
+//            y = this.area.getHeight()- this.height;
+//        
+//        if(x == ox & y == oy)
+//            return false;
+//        
+//        return true;
 
+    public void setTraces(ArrayList<Trace> traces) {
+        this.traces = traces;
+    }
 
+    public ArrayList<Trace> getTraces() {
+        return traces;
+    }
     
     
 }
