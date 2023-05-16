@@ -9,9 +9,6 @@ import co.edu.autonoma.elements.Drawable;
 import co.edu.autonoma.elements.TurtleCommandReader;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.ArrayList;
-import javax.crypto.AEADBadTagException;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,14 +22,14 @@ public class MainWindow extends javax.swing.JFrame implements Drawable{
      */
     public MainWindow() {
         setResizable(false);
-        canvas= new Canvas(WIDTH, HEIGHT);
-        reader= new TurtleCommandReader(canvas);
         initComponents();
+        
     }
     
     public void setCanvas(Canvas canvas){
         this.canvas = canvas;
         canvas.setDrawable(this);
+        reader= new TurtleCommandReader(canvas);
     }
     
     @Override
@@ -108,7 +105,7 @@ public class MainWindow extends javax.swing.JFrame implements Drawable{
         String data = this.txtCommandText.getText().toLowerCase();
         String[] array= data.split(" ");
         reader.read(array);
-        
+        repaint();
     }//GEN-LAST:event_btnAcceptActionPerformed
 
     /**
@@ -117,6 +114,7 @@ public class MainWindow extends javax.swing.JFrame implements Drawable{
     public static void main(String args[]) {
         MainWindow window = new MainWindow();
         Canvas canvas = new Canvas(window.getWidth(), window.getHeight());
+        
         
         window.setCanvas(canvas);
 //        garden.setWidth(window.getWidth());
@@ -128,10 +126,12 @@ public class MainWindow extends javax.swing.JFrame implements Drawable{
 
     @Override
     public void redraw() {
+        repaint();
     }
 
     @Override
     public void redraw(int x, int y, int width, int height) {
+        repaint(x, y, width, height);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -12,6 +12,11 @@ package co.edu.autonoma.instructions;
 public abstract class Instruction {
     private String type;
 
+    public Instruction() {
+        type= "";
+    }
+    
+
     /**
      * @return the type
      */

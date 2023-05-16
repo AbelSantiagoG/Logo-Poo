@@ -14,8 +14,6 @@ import javax.swing.ImageIcon;
  */
 public class Turtle extends Sprite {
     private int angle;
-    private int x2;
-    private int y2;
     
     public Turtle(int x, int y) {
         super(x, y, 70, 70);
@@ -27,6 +25,8 @@ public class Turtle extends Sprite {
         ImageIcon imagen=new ImageIcon(getClass().getResource("tortuga-removebg-preview.png"));         
         g.setColor(new Color(128,64,0));         
         g.drawImage(imagen.getImage(),x, y, width, height,null);
+        System.out.println(x);
+        System.out.println(y);
     }
     
     private boolean isValidPosition(int x, int y)
@@ -58,40 +58,26 @@ public class Turtle extends Sprite {
         angle-= value;
     }
     
-    public boolean move(String command, int value){
-        if(command.equals("fd") | command.equals("forward")){
-            moveFd(value);
-        }
-        if(command.equals("bk") | command.equals("backward")){
-            moveBk(value);
-        }
-        if(command.equals("rt") | command.equals("rightturn")){
-            rightTurn(value);
-        }
-        if(command.equals("lt") | command.equals("leftturn")){
-            leftTurn(value);
-        }
-        
-        int ox = x;
-        int oy = y;
 
-        if(x < this.area.getX())
-            x = this.area.getX();
-            
-        if(y < this.area.getY())
-            y = this.area.getY();
-
-        if(x + this.width > this.area.getWidth())
-            x = this.area.getWidth() - this.width;
-        
-        if(y + this.height > this.area.getHeight())
-            y = this.area.getHeight()- this.height;
-        
-        if(x == ox & y == oy)
-            return false;
-        
-        return true;
-    }
+//        int ox = x;
+//        int oy = y;
+//
+//        if(x < this.area.getX())
+//            x = this.area.getX();
+//            
+//        if(y < this.area.getY())
+//            y = this.area.getY();
+//
+//        if(x + this.width > this.area.getWidth())
+//            x = this.area.getWidth() - this.width;
+//        
+//        if(y + this.height > this.area.getHeight())
+//            y = this.area.getHeight()- this.height;
+//        
+//        if(x == ox & y == oy)
+//            return false;
+//        
+//        return true;
     
     
 }

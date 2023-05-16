@@ -28,6 +28,7 @@ public class TurtleCommandReader {
     
     public TurtleCommandReader(Canvas canva){
         this.canvas= canva;
+        
     }
     
     public void read(String [] array){  
@@ -35,7 +36,7 @@ public class TurtleCommandReader {
         if(comand.equals("r")|| comand.equals("reset")){
             ResetInstruction r= new ResetInstruction();
             r.setType("r");
-            canvas.setInstruction(r);
+            canvas.handleInstruction(r);
         }
         if(comand.equals("h")|| comand.equals("home")){
             HomeInstruction h = new HomeInstruction();
@@ -46,7 +47,7 @@ public class TurtleCommandReader {
             ForwardInstruction fd= new ForwardInstruction();
             fd.setType("fd");
             fd.setValue(Integer.parseInt(array[1]));
-            canvas.setInstruction(fd);
+            canvas.handleInstruction(fd);
         }
         if(comand.equals("bd") || comand.equals("backward")){
             BackwardInstruction bd= new BackwardInstruction();
